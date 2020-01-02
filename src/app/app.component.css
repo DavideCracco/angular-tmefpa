@@ -1,11 +1,15 @@
 .column{
   float: left;
   width: 50%;
+  background-color: lightgray;
+  min-height: 80px;
 }
 
 .column2{
-  float: center;
-  width: 100%;
+  float: left;
+  width: 50%;  
+  background-color: lightskyblue;  
+  min-height: 80px;
 }
 
 .row:after{

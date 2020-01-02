@@ -6,12 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  lista = [1, 2];
+  lista: any = [];
 
   setLista(element){
-    console.log(element + " - " + this.lista);
-    if(element != null || element != undefined){
-      return this.lista.push(element);
+    console.log(element.element);
+    if(element.element != null || element.element != undefined){
+      this.lista.push(element.element);
     }
   }
 

@@ -1,4 +1,4 @@
-import { Component, Output,  OnInit } from '@angular/core';
+import { Component, Output,  OnInit , EventEmitter } from '@angular/core';
 import { BusService } from '../bus.service';
 
 @Component({
@@ -7,7 +7,8 @@ import { BusService } from '../bus.service';
   styleUrls: ['./controller.component.css']
 })
 export class ControllerComponent implements OnInit {
-  @Output() element;
+  @Output() elementEvent = new EventEmitter<{ element: any }>();
+  element;
 
   constructor(public service: BusService) { 
 
@@ -17,7 +18,9 @@ export class ControllerComponent implements OnInit {
   }
 
   onClick(): void{
-    this.service.setElement(this.element);
+    this.elementEvent.emit({
+      element: this.element
+    });
   }
 
 }

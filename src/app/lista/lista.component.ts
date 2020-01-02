@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter } from '@angular/core';
 import { BusService } from '../bus.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { BusService } from '../bus.service';
   styleUrls: ['./lista.component.css']
 })
 export class ListaComponent implements OnInit {
+  elementEvent = new EventEmitter<{element: any}>();
   @Input() lista = [];
 
   constructor(public service: BusService) {

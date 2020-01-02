@@ -3,20 +3,18 @@
 <div class="row">
 
   <div class="column">
-    <app-controller></app-controller>
+    <div>
+      <app-controller (elementEvent)="setLista($event)" ></app-controller>
+    </div>
   </div>
 
-  <div class="column">
-    <app-lista [lista]="lista" ></app-lista>
+
+
+  <div class="column2">
+    <div>
+      <app-lista [lista]="lista" ></app-lista>
+    </div>
   </div>
 
 </div>
-<hr>
-
-<div class="row">
-  <div align="center">
-    <button type="button" (click)="setLista()">Bottone</button>
-  </div>
-</div>
-
 <hr>
