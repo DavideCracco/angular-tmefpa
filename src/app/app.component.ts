@@ -9,7 +9,6 @@ export class AppComponent  {
   lista: any = [];
 
   setLista(element){
-    console.log(element.element);
     if(element.element != null || element.element != undefined){
       this.lista.push(element.element);
     }
