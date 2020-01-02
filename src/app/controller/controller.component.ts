@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { BusService } from '../bus.service';
 @Component({
   selector: 'app-controller',
   templateUrl: './controller.component.html',
@@ -8,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class ControllerComponent implements OnInit {
   element;
 
-  constructor() { }
+  constructor(service: BusService) { 
+
+   }
 
   ngOnInit() {
   }
 
   onClick(){
-    
   }
 
 }
