@@ -1,21 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output,  OnInit } from '@angular/core';
 import { BusService } from '../bus.service';
+
 @Component({
   selector: 'app-controller',
   templateUrl: './controller.component.html',
   styleUrls: ['./controller.component.css']
 })
 export class ControllerComponent implements OnInit {
-  element;
+  @Output() element;
 
-  constructor(service: BusService) { 
+  constructor(public service: BusService) { 
 
    }
 
   ngOnInit() {
   }
 
-  onClick(){
+  onClick(): void{
+    this.service.setElement(this.element);
   }
 
 }

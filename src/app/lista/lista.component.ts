@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { BusService } from '../bus.service';
 
 @Component({
   selector: 'app-lista',
@@ -6,12 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista.component.css']
 })
 export class ListaComponent implements OnInit {
-  lista = [];
+  @Input() lista = [];
 
-  constructor() {
+  constructor(public service: BusService) {
    }
 
   ngOnInit() {
   }
+
+  
 
 }

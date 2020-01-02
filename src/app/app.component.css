@@ -3,6 +3,11 @@
   width: 50%;
 }
 
+.column2{
+  float: center;
+  width: 100%;
+}
+
 .row:after{
   content: "";
   display: table;

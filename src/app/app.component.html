@@ -2,14 +2,21 @@
 
 <div class="row">
 
-<div class="column">
-  <app-controller></app-controller>
-</div>
+  <div class="column">
+    <app-controller></app-controller>
+  </div>
 
-<div class="column">
-  <app-lista></app-lista>
-</div>
+  <div class="column">
+    <app-lista [lista]="lista" ></app-lista>
+  </div>
 
+</div>
+<hr>
+
+<div class="row">
+  <div align="center">
+    <button type="button" (click)="setLista()">Bottone</button>
+  </div>
 </div>
 
 <hr>

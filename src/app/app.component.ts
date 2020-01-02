@@ -6,4 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
+  lista = [1, 2];
+
+  setLista(element){
+    console.log(element + " - " + this.lista);
+    if(element != null || element != undefined){
+      return this.lista.push(element);
+    }
+  }
+
 }
