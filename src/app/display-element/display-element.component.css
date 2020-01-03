@@ -1,3 +1,7 @@
 .boxWidth{
   width: 150px;
 }
+
+td{
+  max-width: 100px;
+}

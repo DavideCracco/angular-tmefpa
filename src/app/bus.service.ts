@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class BusService {
-  element;
-  lista: any = [];
+  private url = "https://elements-b73d.restdb.io/rest/things";
+  //lista = [];
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+    //, private messageService: MessageService
+    ) { }
 
-  public setElement(element){
-    this.element = element;
-    this.lista.push(this.element);
-    console.log(this.lista);    
-  }
-
-  public getElement(){
-    return this.element;
-  }
+    getThings(){
+      return this.http.get(this.url);
+    }
 
 }

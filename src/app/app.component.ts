@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
+
 import { ElementComponent } from './element/element.component';
 import { DisplayElementComponent } from './display-element/display-element.component';
+import { BusService } from './bus.component';
+
 
 @Component({
   selector: 'my-app',
@@ -11,6 +14,10 @@ export class AppComponent  {
   lista = [];
   selection = 0;
   el: ElementComponent = new ElementComponent();
+
+  constructor(busService: BusService){
+    this.lista = busService.getThings();
+  }
 
   setLista(element){
     var el = new ElementComponent();
