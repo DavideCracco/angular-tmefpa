@@ -25,7 +25,7 @@ export class DisplayElementComponent implements OnInit {
   }
 
   ngOnChanges(changes){
-    console.log(changes);
+    console.log("changes -> " , changes);
     this.selected = this.elements[changes.selection.currentValue.selection];
   }
 

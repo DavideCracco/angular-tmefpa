@@ -14,17 +14,16 @@ export class AppComponent  {
 
   setLista(element){
     this.el.name = element.element;
-    console.log(this.el);
     if((element.element != null || 
        element.element != undefined) &&
        this.lista.length < 5){
       this.lista.push(element.element);
     }
+    console.log(this.lista);
   }
 
   setSelection(selection){
     this.selection = selection;
-    DisplayElementComponent.
     console.log("=> " , this.selection)
   }
 
