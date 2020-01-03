@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ElementComponent} from './element/element.component';
+import { ElementComponent } from './element/element.component';
 
 @Component({
   selector: 'my-app',
@@ -11,7 +11,6 @@ export class AppComponent  {
   el: ElementComponent;
 
   setLista(element){
-    this.el.
     console.log(this.el);
     if((element.element != null || 
        element.element != undefined) &&

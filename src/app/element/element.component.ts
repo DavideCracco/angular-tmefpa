@@ -19,10 +19,18 @@ export class ElementComponent implements OnInit {
   ngOnInit() {
   }
 
-  public setElement(name, description, elType){
+  public setElement(name, description, elType): void{
     this.name = name;
     this.description = description;
     this.elType = elType;
+  }
+
+  public getElement(): ElementComponent{
+    var el: ElementComponent;
+    el.name = this.name;
+    el.description = this.description;
+    el.elType = this.elType;
+    return el;
   }
 
 }
