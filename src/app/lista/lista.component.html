@@ -2,13 +2,13 @@
 
 <table>
   <tr *ngFor="let element of lista">
-    <td>
+    <td (click)="onTxtClick(element)">
       {{element}}
     </td>
     <td >
       <button class="cancBtn" 
               type="button" 
-              (click)="onCbClick(element)"></button>
+              (click)="onBtnClick(element)"></button>
     </td>
   </tr>
 </table>

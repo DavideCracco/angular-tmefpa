@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ElementComponent } from '../element/element.component';
 
 @Component({
   selector: 'app-display-element',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./display-element.component.css']
 })
 export class DisplayElementComponent implements OnInit {
+  elementi: ElementComponent = [];
 
   constructor() { }
 

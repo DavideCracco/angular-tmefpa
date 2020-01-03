@@ -9,6 +9,7 @@ import { ElementComponent } from '../element/element.component';
 export class ListaComponent implements OnInit {
   elementEvent = new EventEmitter<{element: ElementComponent}>();
   @Input() lista = [];
+  @Input() selection;
 
   constructor() {
    }
@@ -16,7 +17,12 @@ export class ListaComponent implements OnInit {
   ngOnInit() {
   }
 
-  onCbClick(element){
+  onTxtClick(element){
+    console.log("click on " + element);
+    this.selection = element;
+  }
+
+  onBtnClick(element){
     this.lista.splice(this.lista.indexOf(element), 1);    
   }  
 

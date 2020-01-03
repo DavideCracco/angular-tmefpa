@@ -8,9 +8,10 @@ import { ElementComponent } from './element/element.component';
 })
 export class AppComponent  {
   lista = [];
-  el: ElementComponent;
+  el: ElementComponent = new ElementComponent();
 
   setLista(element){
+    this.el.name = element.element;
     console.log(this.el);
     if((element.element != null || 
        element.element != undefined) &&
