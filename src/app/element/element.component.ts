@@ -6,11 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./element.component.css']
 })
 export class ElementComponent implements OnInit {
+  _id;
   name;
   description;
   elType;
 
-  constructor() { 
+  constructor() {
+    this._id = "";
     this.name = "none";
     this.description = "none";
     this.elType = "";

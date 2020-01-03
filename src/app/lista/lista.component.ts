@@ -1,5 +1,6 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { ElementComponent } from '../element/element.component';
+import { BusService } from '../bus.service';
 
 @Component({
   selector: 'app-lista',
@@ -11,7 +12,7 @@ export class ListaComponent implements OnInit {
   @Output() selectionEvent = new EventEmitter<{selection: any}>();
   @Input() lista = [];
 
-  constructor() {
+  constructor(busService: BusService) {
    }
 
   ngOnInit() {

@@ -14,12 +14,12 @@ export class DisplayElementComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit() {
+  ngOnInit() {/*
     let el = new ElementComponent();
     el.name = "Banana"
     el.description = "E' un frutto."
     el.elType = "B";
-    this.lista.push(el);
+    this.lista.push(el);*/
     this.selected = this.lista[0];
   }
 
