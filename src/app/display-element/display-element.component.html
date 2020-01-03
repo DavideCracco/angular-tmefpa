@@ -1,14 +1,3 @@
-<!--
-<div>
-  Name: {{selected.name}}
-</div> 
-<div>
-  Description: {{selected.description}}
-</div>
-<div>
-  Element Type: {{selected.type}}
-</div>
--->
 
 <table>
   <tr>
@@ -17,10 +6,19 @@
   </tr> 
   <tr>
     <td> Description: </td>
-    <td> {{selected.description}} </td>
+    <td> 
+      <input class="boxWidth" type="text" [(ngModel)]="selected.description">
+    </td>
   </tr>
   <tr>
-    <td> Element Type: </td> 
-    <td> {{selected.type}} </td>
+    <td> Element Type: </td>
+    <td>
+      <select class="boxWidth">
+        <option value=""></option>    
+        <option value="A">A</option>        
+        <option value="B">B</option>        
+        <option value="C">C</option>
+      </select>      
+    </td>
   </tr>
 </table>

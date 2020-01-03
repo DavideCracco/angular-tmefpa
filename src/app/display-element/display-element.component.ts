@@ -12,11 +12,11 @@ export class DisplayElementComponent implements OnInit {
   selected: ElementComponent;
 
   constructor() {
-   }
+  }
 
   ngOnInit() {
-    let el = new ElementComponent();
-    this.lista.push(el);
+    //let el = new ElementComponent();
+    //this.lista.push(el);
   }
 
   ngOnChanges(changes){

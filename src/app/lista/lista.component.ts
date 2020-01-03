@@ -19,7 +19,7 @@ export class ListaComponent implements OnInit {
 
   onTxtClick(element){
     //console.log("lista -> " , this.lista);
-    //console.log("element -> " , element);
+    console.log("element -> " , element);
     //console.log("click on " + element);
     //console.log("~>" , this.lista.indexOf(element));
     //console.log("indexOf -> " , this.lista.indexOf(element));
