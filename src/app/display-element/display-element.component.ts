@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ElementComponent } from '../element/element.component';
 
 @Component({
@@ -7,11 +7,28 @@ import { ElementComponent } from '../element/element.component';
   styleUrls: ['./display-element.component.css']
 })
 export class DisplayElementComponent implements OnInit {
-  elementi: ElementComponent = [];
+  @Input() lista = [];
+  @Input() selection;
+  elements = [];
+  selected: ElementComponent;
 
-  constructor() { }
+  constructor() {
+
+   }
 
   ngOnInit() {
+    for(var i = 0; i < this.lista.length; i++){      
+      let el = new ElementComponent();
+      el.name = this.lista[i];
+      this.elements.push(el);
+    }
+
+    this.selected = this.elements[this.elements.indexOf(this.selection)];
+
+  }
+
+  showElement(selector){
+
   }
 
 }

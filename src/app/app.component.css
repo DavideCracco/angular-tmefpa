@@ -2,14 +2,14 @@
   float: left;
   width: 50%;
   background-color: lightgray;
-  min-height: 100px;
+  min-height: 120px;
 }
 
 .column2{
   float: left;
   width: 50%;  
   background-color: lightskyblue;  
-  min-height: 100px;
+  min-height: 120px;
 }
 
 .row:after{

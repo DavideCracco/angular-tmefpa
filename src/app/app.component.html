@@ -9,7 +9,10 @@
 
   <div class="column2">
     <div>
-      <app-lista [lista]="lista" ></app-lista>
+      <app-lista  [lista]="lista"
+                  (selectionEvent)="setSelection($event)" 
+                  >
+      </app-lista>
     </div>
   </div>
 
@@ -17,7 +20,10 @@
 <hr>
 
 <div>
-  <app-display-element></app-display-element>
+  <app-display-element  [lista]="lista"
+                        [selection]="selection" 
+                        >
+    </app-display-element>
 </div>
 
 <hr>

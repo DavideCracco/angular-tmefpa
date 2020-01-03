@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { ElementComponent } from '../element/element.component';
 
 @Component({
@@ -7,9 +7,9 @@ import { ElementComponent } from '../element/element.component';
   styleUrls: ['./lista.component.css']
 })
 export class ListaComponent implements OnInit {
-  elementEvent = new EventEmitter<{element: ElementComponent}>();
+  //elementEvent = new EventEmitter<{element: ElementComponent}>();
+  @Output() selectionEvent = new EventEmitter<{selection: any}>();
   @Input() lista = [];
-  @Input() selection;
 
   constructor() {
    }
@@ -19,7 +19,9 @@ export class ListaComponent implements OnInit {
 
   onTxtClick(element){
     console.log("click on " + element);
-    this.selection = element;
+    this.selectionEvent.emit({
+      selection: element
+    });
   }
 
   onBtnClick(element){
