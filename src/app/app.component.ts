@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ElementComponent} from './element/element.component';
 
 @Component({
   selector: 'my-app',
@@ -6,10 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  lista: any = [];
+  lista = [];
+  el: ElementComponent;
 
   setLista(element){
-    if(element.element != null || element.element != undefined){
+    this.el.
+    console.log(this.el);
+    if((element.element != null || 
+       element.element != undefined) &&
+       this.lista.length < 5){
       this.lista.push(element.element);
     }
   }

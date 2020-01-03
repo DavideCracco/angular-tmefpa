@@ -1,0 +1,7 @@
+.cancBtn{
+  background-color: red;
+  border-color: brown;
+  padding: 4px 4px;
+  border-radius: 50%;
+  display: block;
+}

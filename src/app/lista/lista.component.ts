@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, EventEmitter } from '@angular/core';
+import { ElementComponent } from '../element/element.component';
 
 @Component({
   selector: 'app-lista',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit, EventEmitter } from '@angular/core';
   styleUrls: ['./lista.component.css']
 })
 export class ListaComponent implements OnInit {
-  elementEvent = new EventEmitter<{element: any}>();
+  elementEvent = new EventEmitter<{element: ElementComponent}>();
   @Input() lista = [];
 
   constructor() {

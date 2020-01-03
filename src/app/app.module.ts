@@ -7,10 +7,11 @@ import { HelloComponent } from './hello.component';
 import { ControllerComponent } from './controller/controller.component';
 import { ListaComponent } from './lista/lista.component';
 import { BusService } from './bus.service';
+import { ElementComponent } from './element/element.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent, ControllerComponent, ListaComponent],
+  declarations: [ AppComponent, HelloComponent, ControllerComponent, ListaComponent, ElementComponent],
   bootstrap:    [ AppComponent ],
   providers: [BusService]
 })

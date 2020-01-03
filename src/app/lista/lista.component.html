@@ -1,8 +1,16 @@
 <div>
 
-  <li *ngFor="let element of lista">
-    {{element}}
-    <input type="checkbox" name="{{element}}" (click)="onCbClick(this)">
-    </li>
-    
+<table>
+  <tr *ngFor="let element of lista">
+    <td>
+      {{element}}
+    </td>
+    <td >
+      <button class="cancBtn" 
+              type="button" 
+              (click)="onCbClick(element)"></button>
+    </td>
+  </tr>
+</table>
+
 </div>
