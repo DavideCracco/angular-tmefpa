@@ -15,8 +15,12 @@ export class DisplayElementComponent implements OnInit {
   }
 
   ngOnInit() {
-    //let el = new ElementComponent();
-    //this.lista.push(el);
+    let el = new ElementComponent();
+    el.name = "Banana"
+    el.description = "E' un frutto."
+    el.elType = "B";
+    this.lista.push(el);
+    this.selected = this.lista[0];
   }
 
   ngOnChanges(changes){

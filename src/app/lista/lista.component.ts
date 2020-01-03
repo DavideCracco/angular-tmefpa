@@ -29,7 +29,10 @@ export class ListaComponent implements OnInit {
   }
 
   onBtnClick(element){
-    this.lista.splice(this.lista.indexOf(element), 1);    
+    console.log(element);
+    if(element.elType != "C")
+      this.lista.splice(this.lista.indexOf(element), 1); 
+
   }  
 
 }

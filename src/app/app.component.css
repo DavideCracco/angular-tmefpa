@@ -1,15 +1,24 @@
 .column{
   float: left;
   width: 50%;
-  background-color: lightgray;
   min-height: 120px;
 }
 
 .column2{
   float: left;
   width: 50%;  
-  background-color: lightskyblue;  
   min-height: 120px;
+}
+
+.column3{
+
+  min-height: 80px;
+}
+
+.page{
+  padding-left: 10px;  
+  padding-right: 10px;
+  background-color: lightgray;
 }
 
 .row:after{

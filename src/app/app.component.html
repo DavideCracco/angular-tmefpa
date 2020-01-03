@@ -1,29 +1,30 @@
-<hr>
-<div class="row">
+<div class="page">
+  <hr>
+  <div class="row">
 
-  <div class="column">
-    <div>
-      <app-controller (elementEvent)="setLista($event)" ></app-controller>
+    <div class="column">
+      <div>
+        <app-controller (elementEvent)="setLista($event)" ></app-controller>
+      </div>
     </div>
-  </div>
 
-  <div class="column2">
-    <div>
-      <app-lista  [lista]="lista"
-                  (selectionEvent)="setSelection($event)" 
-                  >
-      </app-lista>
+    <div class="column2">
+      <div>
+        <app-lista  [lista]="lista"
+                    (selectionEvent)="setSelection($event)" 
+                    >
+        </app-lista>
+      </div>
     </div>
+
   </div>
+  <hr>
 
+  <div class="row">
+    <app-display-element  [lista]="lista"
+                          [selection]="selection" 
+                          >
+      </app-display-element>
+  </div>
+  <hr>
 </div>
-<hr>
-
-<div>
-  <app-display-element  [lista]="lista"
-                        [selection]="selection" 
-                        >
-    </app-display-element>
-</div>
-
-<hr>

@@ -5,10 +5,13 @@
     <td (click)="onTxtClick(element)">
       {{element.name}}
     </td>
-    <td >
-      <button class="cancBtn" 
-              type="button" 
-              (click)="onBtnClick(element)"></button>
+    <td>
+      <div *ngIf="element.elType != 'C', else elseBlock">
+      <button class="cancBtnOn" type="button" (click)="onBtnClick(element)"></button>
+      </div>    
+      <ng-template #elseBlock >
+        <button class="cancBtnOff" type="button" ></button>
+      </ng-template>
     </td>
   </tr>
 </table>
