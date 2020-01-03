@@ -8,18 +8,19 @@ import { DisplayElementComponent } from './display-element/display-element.compo
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  lista = ["Uno", "Due"];
+  lista = [];
   selection = 0;
   el: ElementComponent = new ElementComponent();
 
   setLista(element){
-    this.el.name = element.element;
+    var el = new ElementComponent();
+    el.name = element.element;
     if((element.element != null || 
        element.element != undefined) &&
        this.lista.length < 5){
-      this.lista.push(element.element);
+      this.lista.push(el);
     }
-    console.log(this.lista);
+    console.log("LISTA -> " , this.lista);
   }
 
   setSelection(selection){

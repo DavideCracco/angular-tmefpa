@@ -9,24 +9,20 @@ import { ElementComponent } from '../element/element.component';
 export class DisplayElementComponent implements OnInit {
   @Input() lista = [];
   @Input() selection;
-  elements = [];
   selected: ElementComponent;
 
   constructor() {
    }
 
   ngOnInit() {
-    for(var i = 0; i < this.lista.length; i++){      
-      let el = new ElementComponent();
-      el.name = this.lista[i];
-      this.elements.push(el);
-    }
-    this.selected = this.elements[this.selection];
+    let el = new ElementComponent();
+    this.lista.push(el);
   }
 
   ngOnChanges(changes){
     console.log("changes -> " , changes);
-    this.selected = this.elements[changes.selection.currentValue.selection];
+    this.selected = this.lista[changes.selection.currentValue.selection];
+    console.log("selected -> " , this.selected);
   }
 
 }
