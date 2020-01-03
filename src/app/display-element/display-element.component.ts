@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { ElementComponent } from '../element/element.component';
 
 @Component({
@@ -13,7 +13,6 @@ export class DisplayElementComponent implements OnInit {
   selected: ElementComponent;
 
   constructor() {
-
    }
 
   ngOnInit() {
@@ -22,13 +21,12 @@ export class DisplayElementComponent implements OnInit {
       el.name = this.lista[i];
       this.elements.push(el);
     }
-
-    this.selected = this.elements[this.elements.indexOf(this.selection)];
-
+    this.selected = this.elements[this.selection];
   }
 
-  showElement(selector){
-
+  ngOnChanges(changes){
+    console.log(changes);
+    this.selected = this.elements[changes.selection.currentValue.selection];
   }
 
 }

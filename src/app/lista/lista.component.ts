@@ -19,8 +19,9 @@ export class ListaComponent implements OnInit {
 
   onTxtClick(element){
     console.log("click on " + element);
+    console.log("~>" , this.lista.indexOf(element));
     this.selectionEvent.emit({
-      selection: element
+      selection: this.lista.indexOf(element)
     });
   }
 
