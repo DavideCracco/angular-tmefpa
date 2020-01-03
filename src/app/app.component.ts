@@ -24,13 +24,16 @@ export class AppComponent  {
   }
 
   getThings(): void{
-    console.log("COSE -> ", this.busService.getThings());
+    /*console.log("COSE -> ", this.busService.getThings());
     this.busService.getThings()
     .subscribe(lista => {
       console.log("OH:" , lista);
       this.lista.push(lista);
       });
-    console.log("--> " , this.lista);
+    console.log("--> " , this.lista);*/
+
+  console.log(this.busService.getThings());
+
   }
 
   setLista(element){
