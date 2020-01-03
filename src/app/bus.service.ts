@@ -16,7 +16,7 @@ export class BusService {
 
     getThings()//: Observable<ElementComponent[]>{ù
     {
-      return this.http.jsonp<any>(this.url, "");
+      return this.http.get<any>(this.url);
     }
 
 }
