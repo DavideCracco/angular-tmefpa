@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './element.component.html',
   styleUrls: ['./element.component.css']
 })
+
 export class ElementComponent implements OnInit {
   _id;
   name;
@@ -12,7 +13,7 @@ export class ElementComponent implements OnInit {
   elType;
 
   constructor() {
-    this._id = "";
+    this._id = '';
     this.name = "none";
     this.description = "none";
     this.elType = "";

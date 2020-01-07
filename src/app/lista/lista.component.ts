@@ -11,6 +11,7 @@ export class ListaComponent implements OnInit {
   //elementEvent = new EventEmitter<{element: ElementComponent}>();
   @Output() selectionEvent = new EventEmitter<{selection: any}>();
   @Input() lista = [];
+  confirm = { "state":"false", "id":"undefined"};
 
   constructor(busService: BusService) {
    }
@@ -26,9 +27,23 @@ export class ListaComponent implements OnInit {
 
   onBtnClick(element){
     console.log(element);
-    if(element.elType != "C")
-      this.lista.splice(this.lista.indexOf(element), 1); 
+    if(element.elType === "A" || element.elType === '')
+      this.lista.splice(this.lista.indexOf(element), 1);
+    else if(element.elType === "B"){
+      this.confirm = { "state":"true", "id":element._id};
+      console.log(this.confirm);
+    }
+  }
 
-  }  
+  onConfirmClk(button, element){
+    console.log(element);
+    console.log(this.lista.indexOf(element));
+    if(button === "si"){      
+      this.lista.splice(this.lista.indexOf(element), 1);
+      this.confirm = { "state":"false", "id":element._id};
+    }else{
+      this.confirm = { "state":"false", "id":element._id};
+    }
+  }
 
 }

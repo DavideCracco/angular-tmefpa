@@ -19,6 +19,7 @@ export class AppComponent  {
     el.name = "Banana"
     el.description = "E' un frutto."
     el.elType = "B";
+    el._id = 0;
     this.lista.push(el);
     this.getThings();
   }
@@ -42,6 +43,7 @@ export class AppComponent  {
     if((element.element != null || 
        element.element != undefined) &&
        this.lista.length < 5){
+      el._id = this.lista.length;
       this.lista.push(el);
     }
     console.log("LISTA -> " , this.lista);
