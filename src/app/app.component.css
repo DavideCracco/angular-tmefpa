@@ -1,18 +1,18 @@
 .column{
   float: left;
-  width: 50%;
-  min-height: 120px;
+  width: 35%;
+  min-height: 190px;
 }
 
 .column2{
   float: left;
-  width: 50%;  
-  min-height: 120px;
+  width: 65%;  
+  min-height: 190px;
 }
 
 .column3{
 
-  min-height: 80px;
+  min-height: 110px;
 }
 
 .page{

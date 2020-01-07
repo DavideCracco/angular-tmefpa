@@ -7,7 +7,7 @@ import { ElementComponent } from './element/element.component';
 
 @Injectable()
 export class BusService {
-  private url = 'https://elements-b73d.restdb.io/rest/things';
+  private url = "https://elements-b73d.restdb.io/rest/things";
 
   constructor(
     private http: HttpClient

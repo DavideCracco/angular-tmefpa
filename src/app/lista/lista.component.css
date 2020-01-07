@@ -6,6 +6,10 @@
   display: block;
 }
 
+.cancBtnOn:hover{
+  border-color: red;
+}
+
 .cancBtnOff{
   background-color: lightgray;
   border-color: brown;
@@ -22,6 +26,10 @@
   display: block;
 }
 
+.yesBtn:hover{  
+  border-color: rgb(0, 219, 48);
+}
+
 .noBtn{
   background-color: red;
   border-color: brown;
@@ -29,16 +37,47 @@
   border-radius: 30%;
   display: block;
 }
+
+.noBtn:hover{  
+  border-color: red;
+}
+
 /*
 .delMsg{
   border: 2px solid red;
   background-color: white;
 }
 */
-.txt{
-  color: black;
+
+table{
+  width: 90%;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.txt:hover{
+.row{
+  width: 100%;
+  border: 1px solid black;
   background-color: white;
+}
+
+.row:hover{  
+  background-color: rgb(189, 189, 189);
+}
+
+.tdName{
+  min-width: 100px;
+}
+
+.txt{
+  color: black;
+  min-width: 80px;
+}
+
+.imageIcon{
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  border: 1px solid;
+  border-radius: 25%;
 }

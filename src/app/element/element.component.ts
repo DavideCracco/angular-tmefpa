@@ -11,12 +11,14 @@ export class ElementComponent implements OnInit {
   name;
   description;
   elType;
+  imgUrl;
 
   constructor() {
     this._id = '';
     this.name = "none";
     this.description = "none";
     this.elType = "";
+    this.imgUrl = "https://static.thenounproject.com/png/340719-200.png";
   }
 
   ngOnInit() {
