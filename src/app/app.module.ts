@@ -15,6 +15,6 @@ import { DisplayElementComponent } from './display-element/display-element.compo
   imports:      [ BrowserModule, FormsModule, HttpClientModule ],
   declarations: [ AppComponent, HelloComponent, ControllerComponent, ListaComponent, ElementComponent, DisplayElementComponent],
   bootstrap:    [ AppComponent ],
-  providers: [BusService]
+  providers:    [BusService]
 })
 export class AppModule { }
