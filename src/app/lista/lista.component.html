@@ -13,16 +13,17 @@
         <button class="cancBtnOff" type="button" ></button>
       </ng-template>
     </td>
-    <td *ngIf="confirm.id==element._id" >
-      Are you sure?
-    </td>
-    <td *ngIf="confirm.state=='true'">
-      {{confirm.id}}
-      <button class="noBtn" (click)="onConfirmClk('no', element)"></button>
-    </td>
-    <td *ngIf="confirm.state=='true'">
-      <button class="yesBtn" (click)="onConfirmClk('yes', element)" ></button>
-    </td>
+    <div class="delMsg" *ngIf="confirm.state=='true'">
+      <td *ngIf="confirm.id==element._id" >
+        Are you sure?
+      </td>
+      <td *ngIf="confirm.id==element._id">
+        <button class="noBtn" (click)="onConfirmClk('no', element)"></button>
+      </td>
+      <td *ngIf="confirm.id==element._id">
+        <button class="yesBtn" (click)="onConfirmClk('yes', element)" ></button>
+      </td>
+    </div>
   </tr>
 </table>
 

@@ -5,3 +5,11 @@
 td{
   max-width: 100px;
 }
+
+.editTxt{
+  background-color: white;
+}
+
+.editTxt:hover{
+  background-color: lightgray;
+}

@@ -26,6 +26,7 @@ export class ListaComponent implements OnInit {
   }
 
   onBtnClick(element){
+    this.onTxtClick(element);
     console.log(element);
     if(element.elType === "A" || element.elType === '')
       this.lista.splice(this.lista.indexOf(element), 1);
@@ -38,7 +39,7 @@ export class ListaComponent implements OnInit {
   onConfirmClk(button, element){
     console.log(element);
     console.log(this.lista.indexOf(element));
-    if(button === "si"){      
+    if(button === "yes"){      
       this.lista.splice(this.lista.indexOf(element), 1);
       this.confirm = { "state":"false", "id":element._id};
     }else{

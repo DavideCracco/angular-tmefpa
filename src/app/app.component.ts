@@ -17,10 +17,12 @@ export class AppComponent  {
   constructor(private busService: BusService){
     let el = new ElementComponent();
     el.name = "Banana"
-    el.description = "E' un frutto."
+    el.description = "It's a fruit."
     el.elType = "B";
     el._id = 0;
     this.lista.push(el);
+    this.lista.push( {"_id":"1", "name":"Car", "description":"It's a car.", "elType":"A"} );
+    this.lista.push( {"_id":"2", "name":"Steve", "description":"It's a Human.", "elType":"C"} );
     this.getThings();
   }
 

@@ -10,8 +10,11 @@ export class DisplayElementComponent implements OnInit {
   @Input() lista = [];
   @Input() selection;
   selected: ElementComponent;
+  mod: ElementComponent;
+  editable = false;
 
   constructor() {
+    this.mod = {"_id":"", "name":"", "description":"", "elType":""};
   }
 
   ngOnInit() {/*
@@ -24,9 +27,13 @@ export class DisplayElementComponent implements OnInit {
   }
 
   ngOnChanges(changes){
-    console.log("changes -> " , changes);
     this.selected = this.lista[changes.selection.currentValue.selection];
-    console.log("selected -> " , this.selected);
+  }
+
+  saveMod(){
+    this.selected.description = this.mod.description;
+    this.selected.elType = this.mod.elType;
+    this.editable = !this.editable;
   }
 
 }
