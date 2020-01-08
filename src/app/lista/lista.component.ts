@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnChanges, OnInit, EventEmitter } from '@angular/core';
 import { ElementComponent } from '../element/element.component';
 import { BusService } from '../bus.service';
 
@@ -13,10 +13,16 @@ export class ListaComponent implements OnInit {
   @Input() lista = [];
   confirm = { "state":"false", "id":"undefined"};
 
-  constructor(busService: BusService) {
+  constructor(private busService: BusService) {
    }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(changes){
+    console.log("listaChanges -> " , changes);
+    this.lista = changes.lista.currentValue;
+    console.log("newLista -> " , this.lista);
   }
 
   onTxtClick(element){

@@ -14,10 +14,9 @@ export class ElementComponent implements OnInit {
   imgUrl;
 
   constructor() {
-    this._id = '';
     this.name = "none";
     this.description = "none";
-    this.elType = "";
+    this.elType = "none";
     this.imgUrl = "https://static.thenounproject.com/png/340719-200.png";
   }
 

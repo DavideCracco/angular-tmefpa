@@ -1,19 +1,22 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
 import { ElementComponent } from './element/element.component';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+  "Content-Type" : "application/json",
+  "x-api-key" : "5e15bc32b68f0802dd3e611c"
+  })
+};
+
 @Injectable()
-export class BusService {
+export class BusService implements OnInit {
   private url = "https://elements-b73d.restdb.io/rest/things";
-  httpOptions = {
-    headers: new HttpHeaders({
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "no-cors"
-    })
-  };
+  lista;
+
 
   constructor( private http: HttpClient ) {  }
 
@@ -22,10 +25,32 @@ export class BusService {
       return this.http.get<ElementComponent[]>(this.url);
     }*/
 
-    private getThings(){
-      this.httpOptions.headers = this.httpOptions.headers.set("Access-Control-Allow-Origin", "no-cors");
-      this.http.get(this.url,)
-        .subscribe(things => { console.log(things) });
+    ngOnInit(){
+      this.lista = this.getThings();
+    }
+
+    public getThings(){
+      return this.http.get(this.url, httpOptions)
+        /*.subscribe(things => { 
+          this.lista = things;
+          console.log("LOG -> " , this.lista);
+          console.log("THINGS -> " , things);
+        })*/;
+      //console.log("BusService -> ",  this.lista);
+      //return this.lista;
+    }
+
+    public setThings(element){
+      this.http.post(this.url, element, httpOptions)
+        .subscribe(things => {})
+    }
+
+    public updateThings(element){
+      this.http.patch(this.url, element, httpOptions);
+    }
+
+    public deleteThings(element){
+      this.http.delete(this.url, httpOptions);
     }
 
 }

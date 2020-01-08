@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnChanges, Input} from '@angular/core';
 
 import { ElementComponent } from './element/element.component';
 import { DisplayElementComponent } from './display-element/display-element.component';
@@ -11,32 +11,52 @@ import { BusService } from './bus.service';
   styleUrls: [ './app.component.css' ],
   providers: [ BusService ]
 })
-export class AppComponent  {
-  lista = [];
+export class AppComponent implements OnInit {
+  lista;
   selection = 0;
 
+  temp = {
+    "name":"Carlo",
+    "description":"It's a human.",
+    "elType":"B"
+  }
+
   constructor(private busService: BusService){
-    this.lista.push({"_id":"0", "name":"Banana", "description":"It's a fruit.", "elType":"B", "imgUrl":"https://www.ilprimatonazionale.it/wp-content/uploads/2019/12/Una-banana-sul-muro.-La-nuova-opera-di-Cattelan-vale-120mila-dollari.jpg"});
+    /*this.lista.push({"_id":"0", "name":"Banana", "description":"It's a fruit.", "elType":"B", "imgUrl":"https://www.ilprimatonazionale.it/wp-content/uploads/2019/12/Una-banana-sul-muro.-La-nuova-opera-di-Cattelan-vale-120mila-dollari.jpg"});
     this.lista.push( {"_id":"1", "name":"Car", "description":"It's a car.", "elType":"A", "imgUrl":"https://cdnwp.dealerk.com/eed49ed7/uploads/sites/380/2018/09/listino-maserati-mobile.jpg"} );
-    this.lista.push( {"_id":"2", "name":"Steve", "description":"He's a Human.", "elType":"C", "imgUrl":"https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F190324210629-02-steve-carell-2018.jpg"} );
+    this.lista.push( {"_id":"2", "name":"Steve", "description":"He's a Human.", "elType":"C", "imgUrl":"https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F190324210629-02-steve-carell-2018.jpg"} );*/
+    
+    console.log("APP " , busService.getThings());
+  }
+
+  ngOnInit(){
+    this.getService();
+  }
+
+  ngOnChanges(changes){
     this.getService();
   }
 
   getService(): void{
-    this.busService.getThings();
-    console.log("--> " , this.lista);
+    this.busService.getThings()
+      .subscribe(things => { 
+        console.log("AA -> " , things);
+        this.lista = things;
+        console.log("BB -> " , this.lista);
+    });
   }
 
   setLista(element){
     var el = new ElementComponent();
     el.name = element.element;
-    if((element.element != null || 
-       element.element != undefined) &&
-       this.lista.length < 5){
-      el._id = this.lista.length;
-      this.lista.push(el);
+    console.log("NOME -> " , el);
+    if(element.element != null || 
+       element.element != undefined){
+      //el._id = this.lista.length;
+      //this.lista.push(el);
+      this.busService.setThings(el);
     }
-    console.log("LISTA -> " , this.lista);
+    this.lista = this.busService.getThings();
   }
 
   setSelection(selection){

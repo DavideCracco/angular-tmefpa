@@ -27,7 +27,10 @@ export class DisplayElementComponent implements OnInit {
   }
 
   ngOnChanges(changes){
-    this.selected = this.lista[changes.selection.currentValue.selection];
+    //console.log("diplayChanges -> " , changes);
+    //this.selected = this.lista[changes.selection.currentValue.selection];
+    this.selected = this.lista[this.selection];
+    console.log("SELECTED -> " , this.selected);
   }
 
   saveMod(){
