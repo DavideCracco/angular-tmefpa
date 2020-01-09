@@ -4,7 +4,8 @@ import { BusService } from '../bus.service';
 @Component({
   selector: 'app-controller',
   templateUrl: './controller.component.html',
-  styleUrls: ['./controller.component.css']
+  styleUrls: ['./controller.component.css'],
+  providers: [ BusService ]
 })
 export class ControllerComponent implements OnInit {
   @Output() elementEvent = new EventEmitter<{ element: any }>();
@@ -21,6 +22,7 @@ export class ControllerComponent implements OnInit {
     this.elementEvent.emit({
       element: this.element
     });
+    this.element = "";
   }
 
 }

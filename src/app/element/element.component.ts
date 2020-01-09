@@ -15,25 +15,28 @@ export class ElementComponent implements OnInit {
 
   constructor() {
     this.name = "none";
-    this.description = "none";
-    this.elType = "none";
-    this.imgUrl = "https://static.thenounproject.com/png/340719-200.png";
+    this.description = "not available";
+    this.elType = "";
+    this.imgUrl = ["5e1743569cf4c938000aee56"];
   }
 
   ngOnInit() {
   }
 
-  public setElement(name, description, elType): void{
+  public setElement(name, description, elType, imgUrl): void{
     this.name = name;
     this.description = description;
     this.elType = elType;
+    this.imgUrl = imgUrl;
   }
 
   public getElement(): ElementComponent{
     var el: ElementComponent;
+    el._id = this._id;
     el.name = this.name;
     el.description = this.description;
     el.elType = this.elType;
+    el.imgUrl = this.imgUrl;
     return el;
   }
 

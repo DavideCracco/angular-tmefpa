@@ -20,37 +20,31 @@ export class BusService implements OnInit {
 
   constructor( private http: HttpClient ) {  }
 
-    /*getThings(): Observable<ElementComponent[]>
-    {
-      return this.http.get<ElementComponent[]>(this.url);
-    }*/
-
     ngOnInit(){
-      this.lista = this.getThings();
+      //this.lista = this.getThings();
     }
 
     public getThings(){
-      return this.http.get(this.url, httpOptions)
-        /*.subscribe(things => { 
-          this.lista = things;
-          console.log("LOG -> " , this.lista);
-          console.log("THINGS -> " , things);
-        })*/;
-      //console.log("BusService -> ",  this.lista);
-      //return this.lista;
+      console.log("INFO - Elements get.");
+      return this.http.get(this.url, httpOptions);
     }
 
     public setThings(element){
       this.http.post(this.url, element, httpOptions)
         .subscribe(things => {})
+      console.log("INFO - Element set.");
     }
 
     public updateThings(element){
-      this.http.patch(this.url, element, httpOptions);
+      console.log("INFO - Element updated.");
+      var url = this.url.concat("/" + element._id);
+      return this.http.patch(url, element, httpOptions);
     }
 
     public deleteThings(element){
-      this.http.delete(this.url, httpOptions);
+      console.log("INFO - Element deleted.");
+      var url = this.url.concat("/" + element._id);
+      return this.http.delete(url, httpOptions);
     }
 
 }

@@ -1,17 +1,17 @@
 <div>
 
 <table>
-  <tr *ngFor="let element of lista">
-    <div class="row" (click)="onTxtClick(element)">
+  <tr *ngFor="let element of lista; let i = index" [attr.data-index] = "i" >
+    <div class="row" (click)="onTxtClick(i)">
       <td>
-        <img class="imageIcon" src="{{element.imgUrl}}" alt="img">
+        <img class="imageIcon" src="{{url}}/{{element.imgUrl[0]}}" alt="img">
       </td>
       <td class="txt">
         {{element.name}}
       </td>
       <td>
         <div *ngIf="element.elType != 'C', else elseBlock">
-        <button class="cancBtnOn" type="button" (click)="onBtnClick(element)"></button>
+        <button class="cancBtnOn" type="button" (click)="onBtnClick(element, i)"></button>
         </div>    
         <ng-template #elseBlock >
           <button class="cancBtnOff" type="button" ></button>

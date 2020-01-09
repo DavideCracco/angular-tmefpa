@@ -22,6 +22,15 @@
   border-radius: 10%;
 }
 
+.imageDisplay:hover{  
+  object-fit: cover;
+  height: 100px;
+  width: 100px;
+  border: 2px solid blue;
+  background-color: rgb(189, 189, 189);
+  border-radius: 10%;
+}
+
 .boxWidth{
   width: 100%;
 }

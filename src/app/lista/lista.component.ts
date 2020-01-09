@@ -5,13 +5,16 @@ import { BusService } from '../bus.service';
 @Component({
   selector: 'app-lista',
   templateUrl: './lista.component.html',
-  styleUrls: ['./lista.component.css']
+  styleUrls: ['./lista.component.css'],
+  providers: [ BusService ]
 })
 export class ListaComponent implements OnInit {
   //elementEvent = new EventEmitter<{element: ElementComponent}>();
   @Output() selectionEvent = new EventEmitter<{selection: any}>();
   @Input() lista = [];
+  private url = "https://elements-b73d.restdb.io/media";
   confirm = { "state":"false", "id":"undefined"};
+  select;
 
   constructor(private busService: BusService) {
    }
@@ -20,33 +23,40 @@ export class ListaComponent implements OnInit {
   }
 
   ngOnChanges(changes){
-    console.log("listaChanges -> " , changes);
-    this.lista = changes.lista.currentValue;
-    console.log("newLista -> " , this.lista);
-  }
-
-  onTxtClick(element){
-    this.selectionEvent.emit({
-      selection: this.lista.indexOf(element)
+    //this.lista = changes.lista.currentValue;
+    this.busService.getThings()
+      .subscribe(things => {
+        this.lista = things;
     });
   }
 
-  onBtnClick(element){
-    this.onTxtClick(element);
-    console.log(element);
-    if(element.elType === "A" || element.elType === '')
-      this.lista.splice(this.lista.indexOf(element), 1);
+  onTxtClick(element){
+    console.log("Selection => " , element);
+    this.select = element;
+    this.selectionEvent.emit({
+      selection: element
+    });
+  }
+
+  onBtnClick(element, index){
+    //this.onTxtClick(index);
+    console.log("deleteElement -> " , element);
+    if(element.elType === "A" || element.elType === ""){
+      this.onTxtClick(index - 1);
+      this.busService.deleteThings(element)
+        .subscribe(things => {});
+    }
     else if(element.elType === "B"){
       this.confirm = { "state":"true", "id":element._id};
-      console.log(this.confirm);
     }
   }
 
   onConfirmClk(button, element){
-    console.log(element);
-    console.log(this.lista.indexOf(element));
-    if(button === "yes"){      
-      this.lista.splice(this.lista.indexOf(element), 1);
+    //console.log(element);
+    //console.log(this.lista.indexOf(element));
+    if(button === "yes"){
+      this.busService.deleteThings(element)
+        .subscribe(things => {});
       this.confirm = { "state":"false", "id":element._id};
     }else{
       this.confirm = { "state":"false", "id":element._id};
