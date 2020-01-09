@@ -21,7 +21,7 @@
   border: 2px solid;
   border-radius: 10%;
 }
-
+/*
 .imageDisplay:hover{  
   object-fit: cover;
   height: 100px;
@@ -30,7 +30,7 @@
   background-color: rgb(189, 189, 189);
   border-radius: 10%;
 }
-
+*/
 .boxWidth{
   width: 100%;
 }

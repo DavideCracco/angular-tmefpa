@@ -12,9 +12,18 @@ const httpOptions = {
   })
 };
 
+const httpImageOptions = {
+  reportProgress: true,
+  //observe: "events",
+  headers: new HttpHeaders({
+  "x-api-key" : "5e15bc32b68f0802dd3e611c"
+  })
+};
+
 @Injectable()
 export class BusService implements OnInit {
   private url = "https://elements-b73d.restdb.io/rest/things";
+  private imageUrl = "https://elements-b73d.restdb.io/media";
   lista;
 
 
@@ -45,6 +54,12 @@ export class BusService implements OnInit {
       console.log("INFO - Element deleted.");
       var url = this.url.concat("/" + element._id);
       return this.http.delete(url, httpOptions);
+    }
+
+    public updateImage(image){
+      console.log("INFO - Image updated");
+      let el = new ElementComponent();
+      return this.http.post(this.imageUrl, image, httpImageOptions);
     }
 
 }

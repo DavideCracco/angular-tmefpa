@@ -15,21 +15,14 @@ export class DisplayElementComponent implements OnInit {
   mod: ElementComponent;
   editable = false;
   private url = "https://elements-b73d.restdb.io/media";
+  file;
 
-  constructor(private busService: BusService) {
-   //this.mod = new ElementComponent("", "", "", "https://static.thenounproject.com/png/340719-200.png");
-   // this.selected = new ElementComponent("", "", "", "https://static.thenounproject.com/png/340719-200.png");
-   
-   this.mod = new ElementComponent();
-   this.selected = new ElementComponent();
+  constructor(private busService: BusService) {   
+    this.mod = new ElementComponent();
+    this.selected = new ElementComponent();
   }
 
-  ngOnInit() {/*
-    let el = new ElementComponent();
-    el.name = "Banana"
-    el.description = "E' un frutto."
-    el.elType = "B";
-    this.lista.push(el);*/
+  ngOnInit() {
     this.selected = this.lista[this.selection.selection];
   }
 
@@ -52,6 +45,26 @@ export class DisplayElementComponent implements OnInit {
     this.editable = !this.editable;
     this.busService.updateThings( this.selected )
       .subscribe(things => {});
+  }
+
+  imageUpload(image){
+    console.log("IMAGE -> " , image.target.files[0]);
+    var response;
+    this.file = image.target.files[0];
+    var imageForm = new FormData();
+    imageForm.append("imgUrl", this.file, this.file.name);    
+    this.busService.updateImage(imageForm)
+      .subscribe(things => {
+        console.log("THINGS -> " , things);
+        if(things.msg == "OK"){
+          this.selected.imgUrl[0] = things.ids[0];
+        }
+      });
+    //this.selected.imgUrl[0] = response.body.ids[0];
+
+
+    //console.log("RET -> " , returned);
+    //this.selected.imgUrl[0] = returned.body.ids[0];
   }
 
 }

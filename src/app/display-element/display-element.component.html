@@ -63,4 +63,9 @@
   <div>
     <img class="imageDisplay" src="{{url}}/{{selected.imgUrl[0]}}" alt="imageDisplay" >
   </div>
+  <br>
+  <br>
+  <div *ngIf="editable == true">
+    <input type="file" (change)="imageUpload($event)">
+  </div>
 </div>
