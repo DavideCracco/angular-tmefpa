@@ -1,13 +1,15 @@
 .column{
   float: left;
-  width: 35%;
+  width: 30%;
   min-height: 190px;
+  min-width: 150;
 }
 
 .column2{
-  float: left;
+  float: right;
   width: 65%;  
   min-height: 190px;
+  min-width: 350px;
 }
 
 .column3{
@@ -19,6 +21,10 @@
   padding-left: 10px;  
   padding-right: 10px;
   background-color: lightgray;
+}
+
+.row{
+  min-width: 500px;
 }
 
 .row:after{

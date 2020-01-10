@@ -39,6 +39,7 @@ export class AppComponent implements OnInit {
   getService(): void{
     this.busService.getThings()
       .subscribe(things => {
+        things.sort((a, b) => a.name.localeCompare(b.name));
         this.lista = things;
     });
   }

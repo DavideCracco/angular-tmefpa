@@ -26,7 +26,7 @@ export class ListaComponent implements OnInit {
     //this.lista = changes.lista.currentValue;
     this.busService.getThings()
       .subscribe(things => {
-        this.lista = things;
+        //this.lista = things;
     });
   }
 
